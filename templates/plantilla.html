@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> {% block titulo %} {% endblock %} </title>
+        <style>
+            *{
+                padding: 0%;
+                margin: 0%;
+                box-sizing: border-box;
+            }
+            .container{
+                margin: 5px;
+                height: 90vh;
+                width: 98vw;
+            }
+
+            nav{
+                position: relative;
+                border: 5px solid gray;
+                border-radius: 5px;
+                display: flex;
+                flex-flow: row wrap;
+                width: 99%;
+                height: 50px;
+                border-radius: 5px;
+                background-color: lightgray;
+            }
+            nav a{
+                position: relative;
+                text-align: center;
+                margin: 4px;
+                height: 80%;
+                width: 200px;
+                font-size: 1.5rem;
+                background-color: white;
+                color: black;
+                text-decoration: none;
+                border: 1px solid black;
+                border-radius: 5px;
+            }
+
+            .contenido{
+                margin: 20px;
+                display: block;
+                border: 2px solid gray;
+                text-align: center;
+            }
+
+            .btn{
+                background-color: rgba(211, 211, 211, 0.281);
+                border: 1px solid rgba(0, 0, 0, 0.747);
+                border-radius: 2px;
+                color: black;
+                text-decoration: none;
+            }
+            .btnCancelar{
+                background-color: rgb(255, 0, 0);
+                border: 1px solid rgba(0, 0, 0, 0.747);
+                border-radius: 2px;
+                color: white;
+                text-decoration: none;
+            }
+            h3{
+                text-decoration: underline;
+                font-size: 2rem;
+            }
+            
+            table, tr, th, td{
+                border: 1px solid black;
+            }
+
+            .tabla{
+                display: flex;
+                justify-content: center;
+            }
+
+            .error *{
+                text-decoration: none;
+                color: red;
+                list-style: none;
+            }
+
+            footer{
+                position: absolute;
+                border: 5px solid gray;
+                border-radius: 5px;
+                width: 99%;
+                height: 60px;
+                border-radius: 5px;
+                background-color: lightgray;
+                top: 90vh;
+                text-align: center;
+            }
+            footer a{
+                line-height: 50px;
+                color: black;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <a href="{% url 'inicio' %}">Inicio</a>
+                <a href="{% url 'usuarios' %}">Usuarios</a>
+                <a href="{% url 'informacion' %}">Informacion</a>
+            </nav>
+
+            <div class="contenido">
+                {% block contenido %} {% endblock %}
+            </div>
+
+            <footer>
+                <p>
+                    <a href="https://daw205.ieslossauces.es/">David del Prado Losada</a>
+                    | 
+                    <a href="">GitHub</a>
+                </p>
+                
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "plantilla.html" %}
+
+{% block titulo %} Lista de usuarios {% endblock %}
+
+{% block contenido %} 
+
+<div>
+    <h3>Usuarios</h3>
+    <br>
+    <a class="btn" href="{% url 'crear' %}">Añadir usuario</a>
+    <br><br>
+    <div class="tabla">
+        <table>
+            <thead>
+            <tr>
+                <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Fecha de nacimineto</th>
+                    <th>Acciones</th>
+                </tr> 
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.DNI }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellidos }}</td>
+                    <td>{{ usuario.fechaNac }}</td>
+                    <td>
+                        <a class="btn" href="{% url 'editar' usuario.DNI %}">Editar</a>
+                        | 
+                        <a class="btnCancelar" href="{% url 'borrar' usuario.DNI %}">Borrar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
+
+{% endblock %}
